@@ -6,8 +6,7 @@ export default ({products, addToCart, cart}) => (
 
         <div className="row text-center">
           {
-            // checkoutLocalStorage(cart);
-            products && products.map(product => {
+            products && products.map((product, index) => {
               return (
                 <div key={product.id} className="col-md-3 col-sm-6 product-boxes">
                     <div className="thumbnail">

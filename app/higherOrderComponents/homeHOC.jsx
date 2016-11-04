@@ -20,6 +20,7 @@ const createHomeHOC = HomeComponent => {
                 return (
                     <HomeComponent categories={this.props.categories}
                                    products={this.props.products}
+                                   props={this.props}
                                    cart={this.props.cart}
                                    />
                 );
