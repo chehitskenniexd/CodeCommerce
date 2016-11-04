@@ -17,7 +17,7 @@ render (
       <Route path="/" component={homeContainer}>
        <Route path="products/:id" component={productContainer} />
       </Route>
-      <Route path="/login" component={Login} />      
+      <Route path="/login" component={Login} />
     </Router>
   </Provider>,
   document.getElementById('main')
