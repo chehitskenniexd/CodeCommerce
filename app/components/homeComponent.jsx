@@ -4,6 +4,7 @@ import React from 'react';
 import SidebarContainer from '../containers/sidebarContainer';
 import NavbarContainer from '../containers/navbarContainer';
 import AllproductsContainer from '../containers/allproductsContainer';
+import FooterContainer from '../containers/footerContainer';
 
 export default ({ props, params }) => {
 
@@ -28,5 +29,6 @@ export default ({ props, params }) => {
         </div>
       </div>
     </div>
+     
   )
 }

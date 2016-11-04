@@ -3,9 +3,7 @@
 import { connect } from 'react-redux';
 import navbarComponent from '../components/navbarComponent';
 
-const mapStateToProps = (state, ownProps) => ({
-    categories: state.categories
-})
+const mapStateToProps = (state, ownProps) => ({})
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {};
  }
