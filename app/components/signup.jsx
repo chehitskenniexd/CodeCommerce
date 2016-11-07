@@ -7,11 +7,14 @@ import { Link } from 'react-router'
 export const Signup = ({ signup }) => (
   <div className="container">
     <div className="wrapper">
-      <form className="form-signin">
+      <form className="form-signin" onSubmit={event => {
+          event.preventDefault()
+
+      }}>
         <h3 className="form-signin-heading">Welcome to Swag-Store! Please Sign Up</h3>
         <hr className="colorgraph"></hr>
-        <input className="form-control" name="first name" placeholder="First Name"/>
-         <input className="form-control" name="last name" placeholder="Last Name"/>
+        <input className="form-control" name="firstName" placeholder="First Name"/>
+         <input className="form-control" name="lastName" placeholder="Last Name"/>
          <input className="form-control" name="email" placeholder="Email Address"/>
 
         <input className="form-control" name="password" type="password" placeholder="Password" />
