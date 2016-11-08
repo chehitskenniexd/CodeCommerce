@@ -3,8 +3,6 @@
 import { CREATE_A_USER, LOGOUT_A_USER } from '../actions/userActions';
 
 var initUser = JSON.parse(localStorage.getItem('user'));
-// console.log('init cart ', initCart);
-
 
 // Reducer for current user
 export default function currentUserReducer(prevState = initUser || {}, action) {
@@ -23,8 +21,6 @@ export default function currentUserReducer(prevState = initUser || {}, action) {
     }
 }
 function checkoutLocalStorage (user) {
-  // localStorage.clear();
-  // console.log('cart ', cart);
   user = JSON.stringify(user);
   localStorage.setItem('user', user);
   console.log('local ', localStorage);

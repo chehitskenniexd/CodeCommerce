@@ -2,7 +2,8 @@
 
 import { connect } from 'react-redux';
 import navbarComponent from '../components/navbarComponent';
-import { receiveNamedProductsFromServer, logoutAUserFromWeb } from '../actions/productsActions';
+import { receiveNamedProductsFromServer } from '../actions/productsActions';
+import { logoutAUserFromWeb } from '../actions/userActions';
 import { browserHistory } from 'react-router'
 
 const mapStateToProps = (state, ownProps) => ({

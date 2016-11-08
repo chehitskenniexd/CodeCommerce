@@ -52,7 +52,9 @@ export default class NavbarComponent extends React.Component {
               <li>
                 {
                   this.props && this.props.currentUser && this.props.currentUser.name
-                    ? <Link to={"/"} className="nav navbar navbar-right" onClick={() => {this.props.onLogout}}>Logout</Link>
+                    ? <Link to={"/"} className="nav navbar navbar-right" onClick={() => {
+                      this.props.onLogout();
+                    }}>Logout</Link>
                   : <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
               }
               </li>
