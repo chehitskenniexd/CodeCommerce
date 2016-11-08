@@ -29,11 +29,16 @@ export default class OrdersComponent extends React.Component {
             <div className="orders-container">
                 <ul className="orders">
                 {
-                    orders && orders.map((order, index) => {
+                    orders && orders.length > 0
+                    ? orders.map((order, index) => {
                         return (
-                            <orderContainer key={index} order={order}/>
+                            <div className="order-container" key={index}>
+                                <h3>Order Status: {order.status}</h3>
+                                <h3>Order Address: {order.address}</h3>
+                            </div>
                         );
-                    })
+                    }) 
+                    : <h3>No Orders!</h3>
                 }
                 </ul>
             </div>
