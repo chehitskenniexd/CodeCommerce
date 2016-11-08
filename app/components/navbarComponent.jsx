@@ -10,8 +10,8 @@ Navbar has:
   - a cart button that links to the cart
 */
 
-export default class NavbarComponent extends React.Component{
-  constructor(props){
+export default class NavbarComponent extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       searchText: ''
@@ -20,20 +20,18 @@ export default class NavbarComponent extends React.Component{
     this.handleOnChange = this.handleOnChange.bind(this);
   }
 
-
-
   // When a user inputs text in the searchbar, save to the state
-  handleOnChange(event){
-    this.setState({searchText: event.target.value});
+  handleOnChange(event) {
+    this.setState({ searchText: event.target.value });
   }
   // When a user submits on the searchbar, it will fire an event to search for a product
-  handleOnSubmit(event){
+  handleOnSubmit(event) {
     event.preventDefault();
     this.props.onSubmitName(this.state.searchText);
     document.getElementById("search-form").reset();
   }
 
-  render(){
+  render() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div className="container">
@@ -55,16 +53,16 @@ export default class NavbarComponent extends React.Component{
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li>
-                <Link to={"/signup"}className="nav navbar navbar-right">Signup</Link>
+                <Link to={"/signup"} className="nav navbar navbar-right">Signup</Link>
               </li>
               <li>
-                <Link to={"/login"}className="nav navbar navbar-right">Login</Link>
+                <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
               </li>
             </ul>
           </div>
           <Link to="cart" id="cart" className="btn" data-placement="bottom" title="Ready to Buy?" >
-                        <span className="glyphicon glyphicon-shopping-cart"></span>
-                      </Link>
+            <span className="glyphicon glyphicon-shopping-cart"></span>
+          </Link>
         </div>
       </nav>
     );
