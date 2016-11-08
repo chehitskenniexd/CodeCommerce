@@ -5,6 +5,20 @@ const db = require('APP/db');
 
 const customOrderRoutes = require('express').Router();
 
+customOrderRoutes.post('/', (req, res, next) => {
+  db.model('order').create(req.body)
+    .then(resp => {
+      res.json(resp)
+    })
+    .catch(err => console.log(err))
+});
+customOrderRoutes.post('/orderProduct', (req, res, next) => {
+  db.model('order_product').bulkCreate(req.body)
+    .then(resp => {
+      res.json(resp)
+    })
+    .catch(err => console.log(err))
+});
 // Insert custom routes here if needed
 customOrderRoutes.get('/', (req, res, next) => {
     db.model('order').findAll({
@@ -30,5 +44,3 @@ customOrderRoutes.get('/:id', (req, res, next) => {
 })
 
 module.exports = customOrderRoutes;
-
-
