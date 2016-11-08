@@ -28,7 +28,7 @@ export default class NavbarComponent extends React.Component {
   handleOnSubmit(event) {
     event.preventDefault();
     this.props.onSubmitName(this.state.searchText);
-    document.getElementById("search-form").reset();
+    event.target.reset();
   }
 
   render() {
@@ -45,23 +45,30 @@ export default class NavbarComponent extends React.Component {
             <Link to={"/"} className="navbar-brand">CodeCommerce</Link>
           </div>
           <div className="collapse navbar-collapse">
-
             <ul className="nav navbar-nav">
               <li>
                 <Link to={"/signup"} className="nav navbar navbar-right">Signup</Link>
               </li>
               <li>
-                <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
+                {
+                  this.props && this.props.currentUser && this.props.currentUser.name
+                    ? <Link to={"/"} className="nav navbar navbar-right" onClick={() => {
+                      this.props.onLogout();
+                    }}>Logout</Link>
+                  : <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
+              }
               </li>
               <li className="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Categories <span className="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Categories
+                  <span className="caret"></span>
+                </a>
                 <SidebarContainer />
               </li>
               <li>
                 <Link to="cart" id="cart" className="btn" data-placement="bottom">
                   <span className="glyphicon glyphicon-shopping-cart"></span>
                 </Link>
-
               </li>
             </ul>
 
@@ -77,5 +84,3 @@ export default class NavbarComponent extends React.Component {
     );
   }
 }
-
-

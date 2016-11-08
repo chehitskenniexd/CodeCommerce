@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class SignUpComponent extends React.Component {
   constructor(props) {
@@ -47,6 +48,9 @@ export default class SignUpComponent extends React.Component {
             <input className="btn btn-lg btn-primary btn-block" type="submit" value="Sign Up" />
             <input className="btn btn-lg btn-primary btn-block" type="button" value="Sign Up with Facebook" />
             <input className="btn btn-lg btn-primary btn-block" type="button" value="Sign Up with Google+" />
+            <div className="return-link">
+              <Link to="/">Return to Products Page</Link>
+            </div>
           </form>
         </div>
       </div>

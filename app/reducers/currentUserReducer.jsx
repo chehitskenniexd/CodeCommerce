@@ -1,17 +1,27 @@
 'use strict'
 
-import { CREATE_A_USER } from '../actions/userActions';
+import { CREATE_A_USER, LOGOUT_A_USER } from '../actions/userActions';
+
+var initUser = JSON.parse(localStorage.getItem('user'));
 
 // Reducer for current user
-export default function currentUserReducer(prevState = {}, action) {
+export default function currentUserReducer(prevState = initUser || {}, action) {
     switch (action.type) {
         case CREATE_A_USER: {
-            console.log('hey');
-            return action.currentUser
+            checkoutLocalStorage(action.currentUser);
+            return action.currentUser;
         };
+        case LOGOUT_A_USER: {
+            checkoutLocalStorage({});
+            return action.currentUser;
+        }
         default: {
-            console.log('this should not happen here', action.type);
             return prevState;
         }
     }
+}
+function checkoutLocalStorage (user) {
+  user = JSON.stringify(user);
+  localStorage.setItem('user', user);
+  console.log('local ', localStorage);
 }

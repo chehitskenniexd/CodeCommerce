@@ -26,7 +26,6 @@ export default ({ props, params, onLoadCategoryProducts }) => {
     <div>
         <NavbarContainer />
         <div className="container">
-          {<SidebarContainer onLoadCategoryProducts={onLoadCategoryProducts}/>}
           { children }
         </div>
     </div>

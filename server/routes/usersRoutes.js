@@ -5,14 +5,24 @@ const db = require('APP/db')
 
 const customUserRoutes = require('express').Router()
 
+const Users = db.model('users');
 // Custom routes go here.
 customUserRoutes.post('/', (req, res, next) => {
-  db.model('users').create(req.body)
+  Users.create(req.body)
     .then(resp => {
       res.json(resp);
     })
     .catch(err => console.error(err));
 });
+
+// This route gets everything with the user (incl. products, orders, etc)
+customUserRoutes.get('/:id', (req, res, next) => {
+  Users.findById(req.params.id, {
+    include: { all: true }
+  })
+    .then(users => res.json(users))
+    .catch(err => console.log('Failed to get user info', err));
+})
 
 module.exports = customUserRoutes
 
@@ -20,20 +30,15 @@ module.exports = customUserRoutes
 const users = epilogue.resource({
   model: db.model('users'),
   endpoints: ['/users', '/users/:id'],
-  actions: ['list','read','delete']
+  actions: ['list', 'delete']
 })
 
-// find all users
-users.list = (req, res, context) => {
-  res.status(201).json(context)
-}
-
 // get details about one user
-users.read = (req, res, context) => {
-  const userId = req.params.id;
-  const user = context.find(user => user.id === userId);
-  res.status(201).json(user);
-}
+// users.read = (req, res, context) => {
+//   const userId = req.params.id;
+//   const user = context.find(user => user.id === userId);
+//   res.status(201).json(user);
+// }
 
 users.update = (req, res, context) => {
   res.json(context)

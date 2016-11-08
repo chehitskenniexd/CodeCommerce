@@ -12,6 +12,7 @@ customOrderRoutes.post('/', (req, res, next) => {
     })
     .catch(err => console.log(err))
 });
+
 customOrderRoutes.post('/orderProduct', (req, res, next) => {
   db.model('order_product').bulkCreate(req.body)
     .then(resp => {
@@ -19,6 +20,7 @@ customOrderRoutes.post('/orderProduct', (req, res, next) => {
     })
     .catch(err => console.log(err))
 });
+
 // Insert custom routes here if needed
 customOrderRoutes.get('/', (req, res, next) => {
     db.model('order').findAll({
@@ -31,10 +33,7 @@ customOrderRoutes.get('/', (req, res, next) => {
 })
 
 customOrderRoutes.get('/:id', (req, res, next) => {
-    db.model('order').findAll({
-        where: {
-            id: req.params.id
-        },
+    db.model('order').findById(req.params.id, {
         include: [
             {all: true}
         ]

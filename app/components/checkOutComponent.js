@@ -76,7 +76,7 @@ export default class extends React.Component {
       return new Promise((resolve, reject) => {
         var x = {
           data: {
-            id: this.props.user
+            id: this.props.user.id
           }
         }
         resolve(x);
