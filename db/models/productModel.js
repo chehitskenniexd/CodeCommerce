@@ -21,7 +21,7 @@ const Product = db.define('product', {
         allowNull: false
     },
     photoUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         defaultValue: null
     },
     isDigitalShip: {
