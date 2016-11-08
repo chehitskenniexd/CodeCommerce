@@ -58,6 +58,8 @@ export default class NavbarComponent extends React.Component {
                   : <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
               }
               </li>
+              <li><Link to={"/profile"} className="nav navbar navbar-right">Profile</Link></li>
+
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Categories
