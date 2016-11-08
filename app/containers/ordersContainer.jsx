@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ordersComponent from '../components/ordersComponent';
 
 const mapStateToProps = (state, ownProps) => ({
-    currentUser: state.currentUser
+    auth: state.auth
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

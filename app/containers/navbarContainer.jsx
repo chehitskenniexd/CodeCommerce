@@ -7,7 +7,7 @@ import { logoutAUserFromWeb } from '../actions/userActions';
 import { browserHistory } from 'react-router'
 
 const mapStateToProps = (state, ownProps) => ({
-    currentUser: state.currentUser,
+    auth: state.auth,
 })
 
 const callback = url => browserHistory.push(`/${url}`)

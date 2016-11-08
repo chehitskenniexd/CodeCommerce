@@ -7,9 +7,9 @@ export const CREATE_A_USER = 'CREATE_A_USER';
 export const LOGOUT_A_USER = 'LOGOUT_A_USER';
 
 // ACTIONS
-const createAUser = currentUser => ({type: CREATE_A_USER, currentUser});
+const createAUser = auth => ({type: CREATE_A_USER, auth});
 const receiveAUser = user => ({type: RECEIVE_A_USER, user });
-const logoutAUser = () => ({type: LOGOUT_A_USER, currentUser: {}})
+const logoutAUser = () => ({type: LOGOUT_A_USER, auth: null})
 
 export const createAUserToServer = (user, callback) => dispatch => {
   axios.post('/api/users', user)
