@@ -1,6 +1,6 @@
 import React from 'react'
-import {login} from 'APP/app/reducers/auth'
-import {connect} from 'react-redux'
+import { login } from 'APP/app/reducers/auth'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 
@@ -8,21 +8,24 @@ export const Login = ({ login }) => (
   <div className="container">
     <div className="wrapper">
       <form className="form-signin" onSubmit={event => {
-          event.preventDefault()
-          login(event.target.username.value, event.target.password.value)
-        }}>
+        event.preventDefault()
+        login(event.target.username.value, event.target.password.value)
+      } }>
         <h3 className="form-signin-heading">Welcome! Please Sign In</h3>
         <hr className="colorgraph"></hr>
-        <input className="form-control" name="username" placeholder="Username"/>
-        <input className="form-control" name="password" type="password" placeholder="Password"/>
-        <input className="btn btn-lg btn-primary btn-block" type="submit" value="Login"/>
+        <input className="form-control" name="username" placeholder="Username" />
+        <input className="form-control" name="password" type="password" placeholder="Password" />
+        <input className="btn btn-lg btn-primary btn-block" type="submit" value="Login" />
+        <div className="return-link">
+          <Link to="/">Return to Products Page</Link>
+        </div>
       </form>
     </div>
   </div>
 )
 
 
-export default connect (
+export default connect(
   state => ({}),
-  {login},
-) (Login)
+  { login },
+)(Login)
