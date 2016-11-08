@@ -18,6 +18,7 @@ import receiveAllProductsFromServer from './actions/productsActions';
 import productAddingContainer from './containers/productAddingContainer';
 import checkoutContainer from './containers/checkoutContainer';
 import ordersContainer from './containers/ordersContainer';
+import orderContainer from './containers/orderContainer';
 
 render(
   <Provider store={store}>
@@ -30,6 +31,7 @@ render(
         <Route path="products/name/:productName" component={selectedProductsContainer} />
         <Route path="products/product/add" component={productAddingContainer} />
         <Route path="users/:id/orders" component={ordersContainer} />
+        <Route path="users/:user_id/orders/:order_id" component={orderContainer} />
       </Route>
       <Route path="/signup" component={signupContainer} />
       <Route path="/login" component={Login} />

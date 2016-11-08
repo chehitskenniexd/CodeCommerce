@@ -5,7 +5,7 @@ import orderContainer from '../containers/orderContainer';
 import axios from 'axios';
 
 export default class OrdersComponent extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             orders: []
@@ -25,21 +25,24 @@ export default class OrdersComponent extends React.Component {
 
     render() {
         const orders = this.state.orders;
+        const userId = this.props.props.params.id;
         return (
             <div className="orders-container">
                 <ul className="orders">
-                {
-                    orders && orders.length > 0
-                    ? orders.map((order, index) => {
-                        return (
-                            <div className="order-container" key={index}>
-                                <h3>Order Status: {order.status}</h3>
-                                <h3>Order Address: {order.address}</h3>
-                            </div>
-                        );
-                    }) 
-                    : <h3>No Orders!</h3>
-                }
+                    {
+                        orders && orders.length > 0
+                            ? orders.map((order, index) => {
+                                return (
+                                    <Link to={`/users/${userId}/orders/${order.id}`}>
+                                        <div className="order-container" key={index}>
+                                            <h3>Order Status: {order.status}</h3>
+                                            <h3>Order Address: {order.address}</h3>
+                                        </div>
+                                    </Link>
+                                );
+                            })
+                            : <h3>No Orders!</h3>
+                    }
                 </ul>
             </div>
         );
