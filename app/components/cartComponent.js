@@ -20,7 +20,7 @@ export default class extends React.Component {
     <div className="container">
       <div className="row">
         <div className="col-sm-12 col-md-10 col-md-offset-1">
-          <table className="table table-hover" style={{"color":"black"}}>
+          <table className="table table-hover" style={{"background": "white", "color": "black"}}>
             <thead>
               <tr>
                 <th>Product</th>
