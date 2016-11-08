@@ -8,9 +8,6 @@ body {
 /* +++++++++++++++++++++++++START CART ICON STYLES+++++++++++++++++++++++++*/
 #cart  {
  max-width: 100px;
- position: absolute;
- top: 0%;
- right: 5%;
  border-radius: 100%;
  color: red;
  font-size: 1.5em;
@@ -32,10 +29,23 @@ body {
 
 
 
-/* +++++++++++++++++++++++++START SIDEBAR ICON STYLES++++++++++++++++++++*/
+/* +++++++++++++++++++++++++START NAVBAR STYLES++++++++++++++++++++*/
+
+#ourNavBar {
+  height: 10%;
+}
+
+#ourSearchBar {
+  display: inline-block;
+  margin-left: 15%;
+}
+
+.dropdown-menu {
+  color: black;
+}
 
 
-/* +++++++++++++++++++++++++END SIDEBAR ICON STYLES++++++++++++++++++++*/
+/* +++++++++++++++++++++++++END NAVBAR STYLES++++++++++++++++++++*/
 
 /* +++++++++++++++++++++++++START LOGIN STYLES+++++++++++++++++++++++++*/
 .wrapper {
@@ -93,10 +103,6 @@ input[type="password"] {
 /* +++++++++++++++++++++++++START ADD PAGE STYLES+++++++++++++++++++++++++ */
 
 
-#product-info {
-  color: black;
-  display: inline-block;
-}
 
 /* +++++++++++++++++++++++++END ADD PAGE STYLES+++++++++++++++++++++++++ */
 

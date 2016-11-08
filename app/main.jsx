@@ -28,10 +28,10 @@ render(
         <Route path="cart" component={cartContainer} onEnter={receiveAllProductsFromServer}/>
         <Route path="products/name/:productName" component={selectedProductsContainer} />
         <Route path="products/product/add" component={productAddingContainer} />
+        <Route path="/signup" component={signupContainer} />
+        <Route path="/login" component={Login} />
+        <Route path="/checkout" component={checkoutContainer} />
       </Route>
-      <Route path="/signup" component={signupContainer} />
-      <Route path="/login" component={Login} />
-      <Route path="/checkout" component={checkoutContainer} />
     </Router>
   </Provider>,
 document.getElementById('main')
