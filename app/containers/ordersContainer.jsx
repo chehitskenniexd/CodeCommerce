@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
     currentUser: state.currentUser
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({});
+const mapDispatchToProps = (dispatch, ownProps) => ({
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ordersComponent);
