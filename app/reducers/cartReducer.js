@@ -37,7 +37,7 @@ export default function cartReducer(prevState = initCart || {}, action){
 }
 
 function checkoutLocalStorage (cart) {
-  localStorage.clear();
+  // localStorage.clear();
   console.log('cart ', cart);
   cart = JSON.stringify(cart);
   localStorage.setItem('cart', cart);

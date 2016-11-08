@@ -50,15 +50,15 @@ export default class NavbarComponent extends React.Component {
                 <Link to={"/signup"} className="nav navbar navbar-right">Signup</Link>
               </li>
               <li>
-              {
-                this.props && this.props.currentUser && this.props.currentUser.name 
-                  ? <Link to={"/"} className="nav navbar navbar-right" onClick={() => {onLogout}}>Logout</Link>
+                {
+                  this.props && this.props.currentUser && this.props.currentUser.name
+                    ? <Link to={"/"} className="nav navbar navbar-right" onClick={() => {this.props.onLogout}}>Logout</Link>
                   : <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
               }
               </li>
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
-                  Categories 
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Categories
                   <span className="caret"></span>
                 </a>
                 <SidebarContainer />
@@ -82,5 +82,3 @@ export default class NavbarComponent extends React.Component {
     );
   }
 }
-
-

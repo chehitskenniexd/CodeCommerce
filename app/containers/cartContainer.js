@@ -5,7 +5,7 @@ import { updateTotal } from '../actions/totalActions';
 
 const mapStateToProps = (state, ownProps) => ({
     cart: state.cart,
-    products: state.products,
+    products: state.products
 })
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
