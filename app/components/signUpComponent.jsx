@@ -4,7 +4,9 @@ export default class SignUpComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      firstName: '',
+      lastName: '',
+      username: '',
       email: '',
       password: ''
     }
@@ -18,10 +20,9 @@ export default class SignUpComponent extends React.Component {
   }
 
   onHandleSubmit(event) {
-    console.log("THIS IS THISSSSS: " + this.props);
     event.preventDefault();
     const newUser = this.state;
-
+    newUser['name'] = `${this.state.firstName} ${this.state.lastName}`;
     this.props.onCreateNewUser(newUser);
   }
 
@@ -29,7 +30,7 @@ export default class SignUpComponent extends React.Component {
     return (
       <div className="container">
         <div className="wrapper">
-          <form className="form-signin" onSubmit={() => { this.onHandleSubmit() } }>
+          <form className="form-signin" onSubmit={(event) => { this.onHandleSubmit(event) } }>
             <h3 className="form-signin-heading">Welcome to Swag-Store! Please Sign Up</h3>
             <hr className="colorgraph"></hr>
 
@@ -37,6 +38,8 @@ export default class SignUpComponent extends React.Component {
               onChange={(event) => { this.onHandleChange('firstName', event) } } />
             <input className="form-control" name="lastName" placeholder="Last Name"
               onChange={(event) => { this.onHandleChange('lastName', event) } } />
+            <input className="form-control" name="username" placeholder="Username"
+              onChange={(event) => { this.onHandleChange('username', event) } } />
             <input className="form-control" name="email" placeholder="Email Address"
               onChange={(event) => { this.onHandleChange('email', event) } } />
             <input className="form-control" name="password" type="password" placeholder="Password"
