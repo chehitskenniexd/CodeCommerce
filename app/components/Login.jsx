@@ -1,7 +1,7 @@
 import React from 'react'
 import { login } from 'APP/app/reducers/auth'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 
 
 export const Login = ({ login }) => (
@@ -9,7 +9,8 @@ export const Login = ({ login }) => (
     <div className="wrapper">
       <form className="form-signin" onSubmit={event => {
         event.preventDefault()
-        login(event.target.username.value, event.target.password.value)
+        login(event.target.username.value, event.target.password.value);
+        browserHistory.push('/');
       } }>
         <h3 className="form-signin-heading">Welcome! Please Sign In</h3>
         <hr className="colorgraph"></hr>

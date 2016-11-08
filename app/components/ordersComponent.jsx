@@ -3,6 +3,7 @@
 import React from 'react';
 import orderContainer from '../containers/orderContainer';
 import axios from 'axios';
+import { Link } from 'react-router';
 
 export default class OrdersComponent extends React.Component {
     constructor(props) {
@@ -33,8 +34,8 @@ export default class OrdersComponent extends React.Component {
                         orders && orders.length > 0
                             ? orders.map((order, index) => {
                                 return (
-                                    <Link to={`/users/${userId}/orders/${order.id}`}>
-                                        <div className="order-container" key={index}>
+                                    <Link to={`/users/${userId}/orders/${order.id}`} key={index}>
+                                        <div className="order-container">
                                             <h3>Order Status: {order.status}</h3>
                                             <h3>Order Address: {order.address}</h3>
                                         </div>

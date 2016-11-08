@@ -9,6 +9,20 @@ const customProductRoutes = require('express').Router()
 const Product = db.model('product');
 const Review = db.model('productReview');
 
+// get all products and eager load everything
+customProductRoutes.get('/', (req, res, next) => {
+  Product.findAll({
+    include: [
+      { all: true }
+    ]
+  })
+    .then(products => {
+      products = products.sort((a, b) => a.id > b.id)
+      res.status(200).json(products)
+    })
+    .catch(err => console.log('Error getting all products', err));
+})
+
 customProductRoutes.post('/', (req, res, next) => {
   Product.create(req.body)
     .then(product => res.status(201).json(product))
@@ -17,7 +31,7 @@ customProductRoutes.post('/', (req, res, next) => {
 
 customProductRoutes.get('/:id', (req, res, next) => {
   Product.findById(req.params.id, {
-    include:[
+    include: [
       { model: Review }
     ]
   })
@@ -45,14 +59,14 @@ const product = epilogue.resource({
       param: 'productDesc',
       attributes: ['description']
     }, {
-        operator: '$eq',
-        param: 'category',
-        attributes: ['category_id']
-      }
-    ],
-    actions: [
-      'list', 'delete'
-    ]
+      operator: '$eq',
+      param: 'category',
+      attributes: ['category_id']
+    }
+  ],
+  actions: [
+    'delete'
+  ]
 })
 
 // get details about one user

@@ -7,7 +7,6 @@ export default class SignUpComponent extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
-      username: '',
       email: '',
       password: ''
     }
@@ -38,8 +37,6 @@ export default class SignUpComponent extends React.Component {
               onChange={(event) => { this.onHandleChange('firstName', event) } } />
             <input className="form-control" name="lastName" placeholder="Last Name"
               onChange={(event) => { this.onHandleChange('lastName', event) } } />
-            <input className="form-control" name="username" placeholder="Username"
-              onChange={(event) => { this.onHandleChange('username', event) } } />
             <input className="form-control" name="email" placeholder="Email Address"
               onChange={(event) => { this.onHandleChange('email', event) } } />
             <input className="form-control" name="password" type="password" placeholder="Password"
