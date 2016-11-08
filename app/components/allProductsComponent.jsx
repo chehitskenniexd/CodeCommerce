@@ -56,8 +56,8 @@ export default ({products, addToCart, cart}) => (
                                             ? 'No Reviews!'
                                             : drawStars(product).map((star, index) => {
                                                 return star === 1
-                                                    ? <span index={index} className="glyphicon glyphicon-star"></span>
-                                                    : <span index={index} className="glyphicon glyphicon-empty"></span>
+                                                    ? <span key={index} className="glyphicon glyphicon-star"></span>
+                                                    : <span key={index} className="glyphicon glyphicon-empty"></span>
                                             })
                                     }
                                 </p>
