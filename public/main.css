@@ -112,6 +112,11 @@ input[type="password"] {
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+/* Manages the text color in all container divs*/
+.container {
+  color: black;
+}
+
 .slide-image {
     width: 100%;
 }
