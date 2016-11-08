@@ -27,7 +27,9 @@ export default class SelectedProductsComponent extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-md-9">
+                    <div className="col-md-12">
+                        <div className="col-md-3"></div>
+                        <div className="col-md-6">
 
                         {
                             selectedProducts && selectedProducts.map((product, index) => {
@@ -61,7 +63,8 @@ export default class SelectedProductsComponent extends React.Component {
                                 );
                             })
                         }
-
+                        <div className="col-md-3"></div>
+                        </div>
                     </div>
                 </div>
             </div>

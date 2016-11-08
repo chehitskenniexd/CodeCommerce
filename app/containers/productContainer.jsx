@@ -8,7 +8,8 @@ import { updateCart } from '../actions/cartActions';
 
 const mapStateToProps = (state, ownProps) => ({
     currentProduct: state.currentProduct,
-    cart: state.cart
+    cart: state.cart,
+    auth: state.auth
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
