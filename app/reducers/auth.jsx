@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CREATE_A_USER, LOGOUT_A_USER } from '../actions/userActions';
+import { CREATE_A_USER } from '../actions/userActions';
 
 var initUser = JSON.parse(localStorage.getItem('user'));
 
@@ -9,10 +9,6 @@ const reducer = (state = null, action) => {
       return action.user
     case CREATE_A_USER: {
       checkoutLocalStorage(action.auth);
-      return action.auth;
-    }
-    case LOGOUT_A_USER: {
-      checkoutLocalStorage({});
       return action.auth;
     }
     default: return state;
