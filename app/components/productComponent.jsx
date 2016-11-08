@@ -61,6 +61,7 @@ export default class ProductComponent extends React.Component {
 
 				<div className="product-description" >
 					<p>{currentProduct.description}</p>
+					<a onClick={(e) => {e.preventDefault(); this.props.addToCart(currentProduct.id, 1);}} href="#" className="btn btn-primary">Add To Cart!</a>
 
 					<div id="review-form">
 						<form onSubmit={this.onHandleSubmitReview}>
