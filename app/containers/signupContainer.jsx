@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux';
 import signUpComponent from '../components/signUpComponent';
-import { createAUserToServer } from '../actions/signupActions';
+import { createAUserToServer } from '../actions/userActions';
 
 const mapStateToProps = (state, ownProps) => ({})
 const mapDispatchToProps = (dispatch, ownProps) => ({
