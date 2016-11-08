@@ -49,50 +49,85 @@ export default class ProductComponent extends React.Component {
 		const currentProduct = this.props.currentProduct;
 		return (
 
-			<div id="product">
-				<div className="product-image" >
-					<img src={currentProduct.photoUrl} alt="" />
-				</div>
-				<div className="product-details" >
-					<h2>{currentProduct.title}</h2>
-					<p>${currentProduct.price}</p>
-					{currentProduct.inventoryQty > 0 ? <p> Stock Available </p> : <p> Stock not Available</p>}
-				</div>
-
-				<div className="product-description" >
-					<p>{currentProduct.description}</p>
-					<a onClick={(e) => {e.preventDefault(); this.props.addToCart(currentProduct.id, 1);}} href="#" className="btn btn-primary">Add To Cart!</a>
-
-					<div id="review-form">
-						<form onSubmit={this.onHandleSubmitReview}>
-							<div id="rating">
-<input name="myrating" type="radio" value="5" /><span>☆</span><input name="myrating" type="radio" value="4" /><span>☆</span><input name="myrating" type="radio" value="3" /><span>☆</span><input name="myrating" type="radio" value="2" /><span>☆</span><input name="myrating" type="radio" value="1" /><span>☆</span>
-</div>
-							<h1>Your Review:</h1>
-							<h1>Title</h1>
-							<input type="input" className="review-title"
-								onChange={(event) => { this.onHandleChange('title', event) } }></input>
-							<textarea rows="10" cols="80"
-								onChange={(event) => { this.onHandleChange('description', event) } }>
-							</textarea><br />
-							<button type="submit">Submit Review</button>
-						</form>
+			<div className="container">
+				<div className="row">
+					<div className="col-md-12">
+					<div className="col-md-3"></div>
+					<div className="col-md-6">
+					<div className="thumbnail">
+						<img className=" img-responsive" src={currentProduct.photoUrl} alt="" />
+							<div className="caption-full">
+								<h4 className="pull-right">{currentProduct.price}</h4>
+								<h4>{currentProduct.title}</h4>
+								<p>{currentProduct.description}</p>
+								<p>{currentProduct.inventoryQty > 0 ? <p> Stock Available </p> : <p> Stock not Available</p>}</p>
+								<a onClick={(e) => {e.preventDefault(); this.props.addToCart(currentProduct.id, 1);}} href="#" className="btn btn-primary">Add To Cart!</a>
+							</div>
 
 					</div>
-					{
-						this.props.currentProduct.productReviews
-						&& this.props.currentProduct.productReviews.map((review, index) => {
-							return (
-								<div className={`review-${index}`} key={index}>
-									<label className="review-title">{review.title}</label>
-									<p>{review.numStars}</p>
-									<p>{review.description}</p>
-								</div>
-							);
-						})
-					}
+
+					<div className="row">
+						<div className="text-right">
+									<form onSubmit={this.onHandleSubmitReview} className="form-control">
+										<h3 style={{"text-align": "center"}}>Please leave a Review:</h3>
+										<div id="rating">
+											<input name="myrating"
+														 type="radio"
+														 value="5"/><span>☆</span>
+														 <input name="myrating"
+														 				type="radio"
+														 				value="4"/>
+														 				<span>☆</span>
+														 				<input name="myrating"
+														 				type="radio"
+														 				value="3" /><span>☆</span>
+														 				<input name="myrating"
+														 				type="radio"
+														 				value="2" /><span>☆</span>
+														 				<input name="myrating"
+														 				type="radio"
+														 				value="1" /><span>☆</span>
+										</div>
+									<h4 style={{"textAlign": "left"}}>Title</h4>
+									<input type="input" className="form-control" onChange={(event) => { this.onHandleChange('title', event) } }></input>
+									<div>
+										<h4 style={{"textAlign": "left"}}>Tell us about your experience</h4>
+									</div>
+									<div>
+										<textarea className="form-control" rows="3" onChange={(event) => { this.onHandleChange('description', event) } }></textarea>
+									</div>
+									<div>
+										<button className="btn btn-primary" type="submit">Submit Review</button>
+									</div>
+								</form>
+
+
+						</div>
+					</div>
+
+
+					<div className="product-description" >
+
+						{
+							this.props.currentProduct.productReviews
+							&& this.props.currentProduct.productReviews.map((review, index) => {
+								return (
+									<div className={`review-${index}`} key={index}>
+										<label className="review-title">{review.title}</label>
+										<p>{review.numStars}</p>
+										<p>{review.description}</p>
+									</div>
+								);
+							})
+						}
+						</div>
+						</div>
+						<div className="col-md-3"></div>
+					</div>
 				</div>
 			</div>
 		);
 	}
 }
+
+

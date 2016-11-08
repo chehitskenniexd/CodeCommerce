@@ -1,6 +1,6 @@
 body {
   /* padding is used to prevent the navbar from covering up page content*/
-  padding-top: 85px;
+  padding-top: 80px;
   background-image: url('./img/gradient_texture_cubes_light_1600x1200.jpg');
   color:#FFFFFF;
 }
@@ -106,8 +106,16 @@ input[type="password"] {
 /* +++++++++++++++++++++++++END LOGIN STYLES+++++++++++++++++++++++++ */
 
 /* +++++++++++++++++++++++++START ADD PAGE STYLES+++++++++++++++++++++++++ */
+/*
+#rating {
+  position: relative;
+}
 
 
+#rating textarea {
+  position: absolute;
+  left: -50px;
+}*/
 
 /* +++++++++++++++++++++++++END ADD PAGE STYLES+++++++++++++++++++++++++ */
 
