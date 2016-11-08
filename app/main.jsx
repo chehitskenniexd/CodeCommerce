@@ -4,6 +4,7 @@ import { Router, Route, IndexRedirect, browserHistory, IndexRoute } from 'react-
 import { render } from 'react-dom'
 import { connect, Provider } from 'react-redux'
 
+<<<<<<< HEAD
 
 import store from './store'
 import Jokes from './components/Jokes'
@@ -19,6 +20,21 @@ import receiveAllProductsFromServer from './actions/productsActions';
 import productAddingContainer from './containers/productAddingContainer';
 import checkoutContainer from './containers/checkoutContainer';
 
+=======
+import store                          from './store'
+import Jokes                          from './components/Jokes'
+import Login                          from './components/Login'
+import homeContainer                  from './containers/homeContainer'
+import productContainer               from './containers/productContainer'
+import allProductsContainer           from './containers/allproductsContainer'
+import selectedProductsContainer      from './containers/selectedProductsContainer'
+import WhoAmI                         from './components/WhoAmI'
+import cartContainer                  from './containers/cartContainer';
+import receiveAllProductsFromServer   from './actions/productsActions';
+import productAddingContainer         from './containers/productAddingContainer';
+import checkoutContainer              from './containers/checkoutContainer';
+import Signup                         from './components/signup';
+>>>>>>> 26b2693ad159227edcb46666ec174ba54c0b1e98
 
 render(
   <Provider store={store}>
@@ -36,5 +52,5 @@ render(
       <Route path="/checkout" component={checkoutContainer} />
     </Router>
   </Provider>,
-  document.getElementById('main')
+document.getElementById('main')
 )
