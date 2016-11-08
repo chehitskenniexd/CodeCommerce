@@ -8,6 +8,9 @@ module.exports = {
     path: __dirname,
     filename: './public/bundle.js'
   },
+  node: {
+    fs: "empty"
+  },
   context: __dirname,
   devtool: 'source-map',
   resolve: {
@@ -15,6 +18,10 @@ module.exports = {
   },
   module: {
     loaders: [
+      {
+        test: /json$/,
+        loader: 'json'
+      },
       {
         test: /jsx?$/,
         exclude: /(node_modules|bower_components)/,
