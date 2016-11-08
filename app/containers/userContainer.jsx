@@ -1,3 +1,4 @@
+'use strict'
 import { connect } from 'react-redux';
  import userComponent from '../components/userComponent';
 
