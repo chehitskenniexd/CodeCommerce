@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Router } from 'react-router';
-import sidebarComponent from './sidebarComponent';
+import SidebarContainer from '../containers/sidebarContainer';
 
 /*
 The navbar component will render a basic navbar
@@ -33,7 +33,7 @@ export default class NavbarComponent extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation" id="ourNavBar">
         <div className="container">
           <div className="navbar-header">
             <button type="button" className="navbar-toggle" data-toggle="collapse">
@@ -42,15 +42,10 @@ export default class NavbarComponent extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            {/*<button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categories <span className="caret"></span>
-              <ul className="dropdown-menu">
-                <sidebarComponent />
-              </ul>
-            </button>*/}
             <Link to={"/"} className="navbar-brand">CodeCommerce</Link>
           </div>
           <div className="collapse navbar-collapse">
+
             <ul className="nav navbar-nav">
               <li>
                 <Link to={"/signup"} className="nav navbar navbar-right">Signup</Link>
@@ -58,13 +53,29 @@ export default class NavbarComponent extends React.Component {
               <li>
                 <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
               </li>
+              <li className="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Categories <span class="caret"></span></a>
+                <SidebarContainer />
+              </li>
+              <li>
+                <Link to="cart" id="cart" className="btn" data-placement="bottom">
+                  <span className="glyphicon glyphicon-shopping-cart"></span>
+                </Link>
+
+              </li>
             </ul>
+
+              <form className="navbar-form navbar-left" onSubmit={this.handleOnSubmit}>
+                <div className="form-group">
+                  <input type="text" className="form-control"  placeholder="Search" onChange={this.handleOnChange}/>
+                  <button type="submit" className="btn btn-lg btn-default"><i className="glyphicon glyphicon-search"></i></button>
+                </div>
+              </form>
           </div>
-          <Link to="cart" id="cart" className="btn" data-placement="bottom" title="Ready to Buy?" >
-            <span className="glyphicon glyphicon-shopping-cart"></span>
-          </Link>
         </div>
       </nav>
     );
   }
 }
+
+

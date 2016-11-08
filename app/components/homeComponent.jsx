@@ -33,3 +33,9 @@ export default ({ props, params, onLoadCategoryProducts }) => {
 
   )
 }
+
+
+/* renders the categories sidebar, move this function into a dropdown
+    inside of the navbar
+*/
+/*{<SidebarContainer onLoadCategoryProducts={onLoadCategoryProducts}/>}*/
