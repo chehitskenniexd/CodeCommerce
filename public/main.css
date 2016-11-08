@@ -93,7 +93,10 @@ input[type="password"] {
 /* +++++++++++++++++++++++++START ADD PAGE STYLES+++++++++++++++++++++++++ */
 
 
-
+#product-info {
+  color: black;
+  display: inline-block;
+}
 
 /* +++++++++++++++++++++++++END ADD PAGE STYLES+++++++++++++++++++++++++ */
 

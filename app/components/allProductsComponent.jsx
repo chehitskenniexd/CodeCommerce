@@ -15,14 +15,14 @@ export default ({products, addToCart, cart}) => (
             <div key={`${index}`} className="col-md-4 col-sm-4 col-lg-4">
                 <div className="thumbnail">
                     <img src={product.photoUrl} alt=""/>
-                    <div className="caption">
-                        <h4 className="pull-right">${product.price}</h4>
-                        <h4><Link to={"/products/" + product.id}>{product.title}</Link></h4>
-                        <p>{product.description}</p>
-                        <p>
-                            <a onClick={(e) => {e.preventDefault(); addToCart(product.id, 1);}} href="#" className="btn btn-primary center-block">Add To Cart!</a>
-                        </p>
-                    </div>
+                        <div className="caption-full">
+                            <h4 className="pull-right">${product.price}</h4>
+                            <h4><Link to={"/products/" + product.id}>{product.title}</Link></h4>
+                            <p>{product.description}</p>
+                            <p>
+                                <a onClick={(e) => {e.preventDefault(); addToCart(product.id, 1);}} href="#" className="btn btn-primary ">Add To Cart!</a>
+                            </p>
+                        </div>
                     <div className="ratings">
                       <p className="pull-right">15 reviews</p>
                         <p>
