@@ -32,10 +32,10 @@ render(
         <Route path="products/product/add" component={productAddingContainer} />
         <Route path="users/:id/orders" component={ordersContainer} />
         <Route path="users/:user_id/orders/:order_id" component={orderContainer} />
+        <Route path="/signup" component={signupContainer} />
+        <Route path="/login" component={Login} />
+        <Route path="/checkout" component={checkoutContainer} />
       </Route>
-      <Route path="/signup" component={signupContainer} />
-      <Route path="/login" component={Login} />
-      <Route path="/checkout" component={checkoutContainer} />
     </Router>
   </Provider>,
 document.getElementById('main')
