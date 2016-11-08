@@ -28,7 +28,7 @@ export default class NavbarComponent extends React.Component {
   handleOnSubmit(event) {
     event.preventDefault();
     this.props.onSubmitName(this.state.searchText);
-    document.getElementById("search-form").reset();
+    event.target.reset();
   }
 
   render() {
@@ -53,21 +53,18 @@ export default class NavbarComponent extends React.Component {
               <li>
               {
                 this.props && this.props.currentUser && this.props.currentUser.name 
-                  ? <Link to={"/"} key={this.props.currentUser.id}
-                      className="nav navbar navbar-right" onClick={() => {onLogout}}>Login</Link>
-                  : <Link to={"/login"} key={this.props.currentUser.id}
-                      setclassName="nav navbar navbar-right">Login</Link>
+                  ? <Link to={"/"} className="nav navbar navbar-right" onClick={() => {onLogout}}>Logout</Link>
+                  : <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
               }
               </li>
               <li className="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Categories <span class="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Categories <span class="caret"></span></a>
                 <SidebarContainer />
               </li>
               <li>
                 <Link to="cart" id="cart" className="btn" data-placement="bottom">
                   <span className="glyphicon glyphicon-shopping-cart"></span>
                 </Link>
-
               </li>
             </ul>
 
