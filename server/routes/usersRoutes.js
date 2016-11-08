@@ -15,6 +15,7 @@ customUserRoutes.post('/', (req, res, next) => {
     .catch(err => console.error(err));
 });
 
+// This route gets everything with the user (incl. products, orders, etc)
 customUserRoutes.get('/:id', (req, res, next) => {
   Users.findById(req.params.id, {
     include: { all: true }
