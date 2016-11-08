@@ -19,6 +19,7 @@ import productAddingContainer from './containers/productAddingContainer';
 import checkoutContainer from './containers/checkoutContainer';
 import ordersContainer from './containers/ordersContainer';
 import orderContainer from './containers/orderContainer';
+import userContainer from './containers/userContainer';
 
 render(
   <Provider store={store}>
@@ -36,6 +37,7 @@ render(
       <Route path="/signup" component={signupContainer} />
       <Route path="/login" component={Login} />
       <Route path="/checkout" component={checkoutContainer} />
+      <Route path="/profile" component={userContainer} />
     </Router>
   </Provider>,
   document.getElementById('main')
