@@ -52,69 +52,71 @@ export default class ProductComponent extends React.Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
-					<div className="col-md-3"></div>
+						<div className="col-md-3"></div>
 						<div className="col-md-6">
 							<div className="thumbnail">
 								<img className=" img-responsive" src={currentProduct.photoUrl} alt="" />
-									<div className="caption-full">
-										<h4 className="pull-right">{currentProduct.price}</h4>
-										<h4>{currentProduct.title}</h4>
-										<p>{currentProduct.description}</p>
-										<p>{currentProduct.inventoryQty > 0 ? <p> Stock Available </p> : <p> Stock not Available</p>}</p>
-										<a onClick={(e) => {e.preventDefault(); this.props.addToCart(currentProduct.id, 1);}} href="#" className="btn btn-primary">Add To Cart!</a>
-									</div>
-
-							</div>
-
-							<div className="row">
-								<div className="text-right">
-									<form onSubmit={this.onHandleSubmitReview} className="form-control">
-										<h3 style={{"text-align": "center"}}>Please leave a Review:</h3>
-										<div id="rating">
-										  <input name="myrating" type="radio" value="2"/><span>☆</span>
-										  <input name="myrating" type="radio" value="4"/><span>☆</span>
-										  <input name="myrating" type="radio" value="3"/><span>☆</span>
-										  <input name="myrating" type="radio" value="2"/><span>☆</span>
-										  <input name="myrating" type="radio" value="1"/><span>☆</span>
-										</div>
-										<h4 style={{"textAlign": "left"}}>Title</h4>
-										<input type="input" className="form-control" onChange={(event) => { this.onHandleChange('title', event) } }></input>
-										<div>
-											<h4 style={{"textAlign": "left"}}>Tell us about your experience</h4>
-										</div>
-										<div>
-											<textarea className="form-control" onChange={(event) => { this.onHandleChange('description', event) } }></textarea>
-										</div>
-										<div>
-											<button className="btn btn-block btn-primary " type="submit">Submit Review</button>
-										</div>
-									</form>
+								<div className="caption-full">
+									<h4 className="pull-right">{currentProduct.price}</h4>
+									<h4>{currentProduct.title}</h4>
+									<p>{currentProduct.description}</p>
+									{currentProduct.inventoryQty > 0 ? <p> Stock Available </p> : <p> Stock not Available</p>}
+									<a onClick={(e) => { e.preventDefault(); this.props.addToCart(currentProduct.id, 1); } } href="#" className="btn btn-primary">Add To Cart!</a>
 								</div>
+
 							</div>
+							{
+								this.props.auth && this.props.auth.id
+									? (<div className="row">
+										<div className="text-right">
+											<form onSubmit={this.onHandleSubmitReview} className="form-control">
+												<h3 style={{ "textAlign": "center" }}>Please leave a Review:</h3>
+												<div id="rating">
+													<input name="myrating" type="radio" value="2" /><span>☆</span>
+													<input name="myrating" type="radio" value="4" /><span>☆</span>
+													<input name="myrating" type="radio" value="3" /><span>☆</span>
+													<input name="myrating" type="radio" value="2" /><span>☆</span>
+													<input name="myrating" type="radio" value="1" /><span>☆</span>
+												</div>
+												<h4 style={{ "textAlign": "left" }}>Title</h4>
+												<input type="input" className="form-control" onChange={(event) => { this.onHandleChange('title', event) } }></input>
+												<div>
+													<h4 style={{ "textAlign": "left" }}>Tell us about your experience</h4>
+												</div>
+												<div>
+													<textarea className="form-control" onChange={(event) => { this.onHandleChange('description', event) } }></textarea>
+												</div>
+												<div>
+													<button className="btn btn-block btn-primary " type="submit">Submit Review</button>
+												</div>
+											</form>
+										</div>
+									</div>)
+									: ''
+							}
+							<div className="row">
 
-								<div className="row">
+								{
+									this.props.currentProduct.productReviews && this.props.currentProduct.productReviews.map((review, index) => {
+										return (
 
-										{
-											this.props.currentProduct.productReviews && this.props.currentProduct.productReviews.map((review, index) => {
-												return (
+											<div className="thumbnail" key={index}>
 
-												 <div className="thumbnail" key={index}>
-
-												 	<div className="caption-full">
-														<div className={`review-${index}`}>
-															<h4>{review.title}</h4>
-															<p>{review.description}</p>
-															<h4>Number of stars</h4>
-															<p>{review.numStars}</p>
-														</div>
+												<div className="caption-full">
+													<div className={`review-${index}`}>
+														<h4>{review.title}</h4>
+														<p>{review.description}</p>
+														<h4>Number of stars</h4>
+														<p>{review.numStars}</p>
 													</div>
 												</div>
-												);
-											})
-										}
+											</div>
+										);
+									})
+								}
 
-								</div>
 							</div>
+						</div>
 						<div className="col-md-3"></div>
 					</div>
 				</div>
