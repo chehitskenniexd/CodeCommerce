@@ -54,7 +54,7 @@ export default class NavbarComponent extends React.Component {
                 <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
               </li>
               <li className="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Categories <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Categories <span className="caret"></span></a>
                 <SidebarContainer />
               </li>
               <li>
