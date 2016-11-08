@@ -49,6 +49,7 @@ body {
   margin: 0 auto;
   background-color: #eee;
   border: 3px dotted rgba(0,0,0,0.1);
+  color: black;
   }
 
 .form-signin-heading {
@@ -56,6 +57,7 @@ body {
   margin-bottom: 30px;
 }
 
+/* controls both the login and the signup*/
 .form-control {
   position: relative;
   font-size: 16px;
