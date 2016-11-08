@@ -45,7 +45,6 @@ export default class NavbarComponent extends React.Component {
             <Link to={"/"} className="navbar-brand">CodeCommerce</Link>
           </div>
           <div className="collapse navbar-collapse">
-
             <ul className="nav navbar-nav">
               <li>
                 <Link to={"/signup"} className="nav navbar navbar-right">Signup</Link>
@@ -58,7 +57,10 @@ export default class NavbarComponent extends React.Component {
               }
               </li>
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Categories <span class="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+                  Categories 
+                  <span className="caret"></span>
+                </a>
                 <SidebarContainer />
               </li>
               <li>
