@@ -6,37 +6,66 @@ This component is a stateless component rendering all the products
 - User for the landing page to get view all the products
 */
 
+function calculateProductNumStars(product) {
+    let numStars = 0;
+    product.productReviews.forEach(review => {
+        numStars += review.numStars;
+    })
+    numStars = Math.ceil(numStars / product.productReviews.length);
+    return numStars;
+}
+
+function drawStars(product) {
+    let output = [];
+    const numStars = calculateProductNumStars(product);
+    for (let i = 0; i < numStars; ++i) {
+        output.push(1);
+    }
+    for (let j = 0; j < (5 - numStars); ++j) {
+        output.push(0);
+    }
+    return output;
+}
+
 export default ({products, addToCart, cart}) => (
 
     <div className="row">
-      {
-        products && products.map((product, index) => {
-          return (
-            <div key={`${index}`} className="col-md-4 col-sm-4 col-lg-4">
-                <div className="thumbnail">
-                    <img src={product.photoUrl} alt=""/>
-                        <div className="caption-full">
-                            <h4 className="pull-right">${product.price}</h4>
-                            <h4><Link to={"/products/" + product.id}>{product.title}</Link></h4>
-                            <p>{product.description}</p>
-                            <p>
-                                <a onClick={(e) => {e.preventDefault(); addToCart(product.id, 1);}} href="#" className="btn btn-primary ">Add To Cart!</a>
-                            </p>
+        {
+            products && products.map((product, index) => {
+                return (
+                    <div key={`${index}`} className="col-md-4 col-sm-4 col-lg-4">
+                        <div className="thumbnail">
+                            <img src={product.photoUrl} alt="" />
+                            <div className="caption-full">
+                                <h4 className="pull-right">${product.price}</h4>
+                                <h4><Link to={"/products/" + product.id}>{product.title}</Link></h4>
+                                <p>{product.description}</p>
+                                <p>
+                                    <a onClick={(e) => { e.preventDefault(); addToCart(product.id, 1); } } href="#" className="btn btn-primary ">Add To Cart!</a>
+                                </p>
+                            </div>
+                            <div className="ratings">
+                                <p className="pull-right">
+                                    {product.productReviews.length === 1
+                                        ? `${product.productReviews.length} Review`
+                                        : `${product.productReviews.length} Reviews`}
+                                </p>
+                                <p className="stars">
+                                    {
+                                        product.productReviews.length < 1
+                                            ? 'No Reviews!'
+                                            : drawStars(product).map((star, index) => {
+                                                return star === 1
+                                                    ? <span index={index} className="glyphicon glyphicon-star"></span>
+                                                    : <span index={index} className="glyphicon glyphicon-empty"></span>
+                                            })
+                                    }
+                                </p>
+                            </div>
                         </div>
-                    <div className="ratings">
-                      <p className="pull-right">15 reviews</p>
-                        <p>
-                            <span className="glyphicon glyphicon-star"></span>
-                            <span className="glyphicon glyphicon-star"></span>
-                            <span className="glyphicon glyphicon-star"></span>
-                            <span className="glyphicon glyphicon-empty"></span>
-                            <span className="glyphicon glyphicon-empty"></span>
-                        </p>
                     </div>
-                </div>
-            </div>
-          )
-        })
-      }
+                )
+            })
+        }
     </div>
 );
