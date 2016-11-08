@@ -32,14 +32,8 @@ export default class extends React.Component {
   addressMaker = () => {
     return this.state.id_address_line_1+', '+this.state.id_address_line_2+', '+this.state.id_city+', '+this.state.id_state+', '+this.state.id_postalcode
   }
-  sendConfirmEmail = () => {
-    // console.log('inside');
-    // console.log(Email.send);
-    // Email.send("blong8334@gmail.com",
-    //       "blong8334@gmail.com",
-    //         "order confirmation",
-    //         "You did it",
-    //         );
+  sendConfirmEmail = (stuff) => {
+    axios.post('/api/orders/sendConfirmEmail', stuff);
   }
   orderProductBulk = (order_id) => {
     var bulkArr = [];
@@ -99,7 +93,7 @@ export default class extends React.Component {
         axios.post('/api/orders/orderProduct', bulkArr)
         .then(() => {
           alert('Order received!');
-          this.sendConfirmEmail();
+          this.sendConfirmEmail(bulkArr);
           this.props.clearCart();
         });
       })

@@ -6,7 +6,7 @@ import { UPDATE_CART, REMOVE_CART_ITEM, EMPTY_CART } from '../actions/cartAction
 var initCart = JSON.parse(localStorage.getItem('cart'));
 console.log('init cart ', initCart);
 
-export default function cartReducer(prevState = initCart || {}, action){
+export default function cartReducer(prevState = initCart || {}, action) {
   switch(action.type){
 
     case UPDATE_CART:
