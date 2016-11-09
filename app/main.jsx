@@ -17,7 +17,6 @@ import cartContainer from './containers/cartContainer';
 import receiveAllProductsFromServer from './actions/productsActions';
 import productAddingContainer from './containers/productAddingContainer';
 import checkoutContainer from './containers/checkoutContainer';
-import ordersContainer from './containers/ordersContainer';
 import orderContainer from './containers/orderContainer';
 import userProfileContainer from './containers/userProfileContainer';
 
@@ -31,7 +30,6 @@ render(
         <Route path="cart" component={cartContainer} onEnter={receiveAllProductsFromServer} />
         <Route path="products/name/:productName" component={selectedProductsContainer} />
         <Route path="products/product/add" component={productAddingContainer} />
-        <Route path="users/:id/orders" component={ordersContainer} />
         <Route path="users/:id/profile" component={userProfileContainer} />
         <Route path="users/:user_id/orders/:order_id" component={orderContainer} />
       </Route>
