@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CheckoutComponent from '../components/checkoutComponent';
+import checkoutComponent from '../components/checkoutComponent';
 import { clearCart } from '../actions/cartActions';
 
 
