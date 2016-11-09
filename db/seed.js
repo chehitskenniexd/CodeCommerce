@@ -67,7 +67,7 @@ var data = {
 const seedUsers = () => db.Promise.map(data.users, user => db.model('users').create(user));
 const seedProducts = () => db.Promise.map(data.products, product => db.model('product').create(product));
 const seedProductReviews = () => db.Promise.map(data.productReviews, productReview => db.model('productReview').create(productReview));
-const seedCategories = () => db.Promise.map(data.categories, category => db.model('category').create(category));
+const seedCategories = () => db.Promise.all(data.categories.map(category => db.model('category').create(category)));
 const seedOrders = () => db.Promise.map(data.orders, order => db.model('order').create(order));
 const seedOrder_Product = () => db.Promise.map(data.order_Product, order_Product => db.model('order_product').create(order_Product));
 //const seedCart = () => {}
