@@ -24,7 +24,6 @@ export default class profileComponent extends React.Component {
         
        render() {
         if (this.props.auth) {
-			console.log(this.state.currentUser);
             return (
 				<div className="row">
 					<div className="panel panel-default">
@@ -39,7 +38,10 @@ export default class profileComponent extends React.Component {
 								</tr>
 								<tr>
 									<td className="text-left">User Main Address</td>
-									<td className="text-center">{this.props.auth.addresses[0]}</td>
+									<td className="text-center">{
+										this.props.auth.addresses 
+										? this.props.auth.addresses[0]
+										: 'No Addresses Stored'}</td>
 								</tr>
 								<tr>
 									<td className="text-left">User Orders</td>

@@ -48,10 +48,11 @@ export default ({products, addToCart, cart}) => (
 
     </div>
   </div>
+  <div className="products-wrapping-container">
   {
     products && products.map((product, index) => {
       return (
-        <div key={`${index}`} className="col-md-4 col-sm-4 col-lg-4">
+        <div key={`${index}`} className="col-md-4 col-sm-4 col-lg-4" id="product-card">
           <div className="thumbnail">
             <img src={product.photoUrl} alt="" />
             <div className="caption-full">
@@ -85,5 +86,6 @@ export default ({products, addToCart, cart}) => (
       )
     })
   }
+  </div>
 </div>
   );
