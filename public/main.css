@@ -170,7 +170,6 @@ footer {
     margin: 50px 0;
 }
 
-
 #rating {
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -206,3 +205,7 @@ footer {
    opacity:0;
 }
 
+#recentOrdersHeading {
+  background-color: #20a94b;
+  color: white;
+}
