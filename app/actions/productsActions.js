@@ -37,9 +37,9 @@ export const receiveOneProductFromServer = (productId, callback) => dispatch => 
 
 // gets filtered products by catergory from the server
 export const receiveCategoryProductsFromServer = (categoryId, callback) => dispatch => {
-    axios.get(`/api/products?category=${categoryId}`)
+    axios.get(`/api/category/${categoryId}`)
         .then(res => {
-            dispatch(receiveCategoryProducts(res.data));
+            dispatch(receiveCategoryProducts(res.data.products));
             callback && callback(`/products/category/${categoryId}`);
         })
         .catch(err => console.log('Error loading category products', err));
