@@ -29,15 +29,14 @@ export default class OrdersComponent extends React.Component {
         const userId = this.props.props.params.id;
         return (
             <div className="orders-container">
-              <ul className="orders list-group">
-                <h2 id="recentOrdersHeading" className="list-group-item">Recent Orders</h2>
+              <ul className="orders">
                 {
                   orders && orders.length > 0
                   ? orders.map((order, index) => {
                     return (
                       <Link to={`/users/${userId}/orders/${order.id}`} key={index}>
-                        <div className="order-container list-group-item">
-                          <h3 className="list-group-item-heading" >Order Status: {order.status}</h3>
+                        <div className="order-container">
+                          <h3>Order Status: {order.status}</h3>
                           <h3>Order Address: {order.address}</h3>
                         </div>
                       </Link>
