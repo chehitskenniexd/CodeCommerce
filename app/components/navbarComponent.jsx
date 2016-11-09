@@ -54,11 +54,17 @@ export default class NavbarComponent extends React.Component {
                   this.props && this.props.auth && this.props.auth.name
                     ? <Link to={"/"} className="nav navbar navbar-right" onClick={() => {
                       this.props.onLogout();
-                    }}>Logout</Link>
-                  : <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
-              }
+                    } }>Logout</Link>
+                    : <Link to={"/login"} className="nav navbar navbar-right">Login</Link>
+                }
               </li>
-              <li><Link to={"/profile"} className="nav navbar navbar-right">Profile</Link></li>
+              <li>
+                {
+                  this.props.auth && this.props.auth.id 
+                  ? <Link to={`/users/${this.props.auth.id}/profile`} className="nav navbar navbar-right">Profile</Link>
+                  : ''
+                }
+              </li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Categories
@@ -73,12 +79,12 @@ export default class NavbarComponent extends React.Component {
               </li>
             </ul>
 
-              <form className="navbar-form navbar-left" onSubmit={this.handleOnSubmit}>
-                <div className="form-group">
-                  <input type="text" className="form-control"  placeholder="Search" onChange={this.handleOnChange}/>
-                  <button type="submit" className="btn btn-lg btn-default"><i className="glyphicon glyphicon-search"></i></button>
-                </div>
-              </form>
+            <form className="navbar-form navbar-left" onSubmit={this.handleOnSubmit}>
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Search" onChange={this.handleOnChange} />
+                <button type="submit" className="btn btn-lg btn-default"><i className="glyphicon glyphicon-search"></i></button>
+              </div>
+            </form>
           </div>
         </div>
       </nav>
