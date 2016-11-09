@@ -34,6 +34,7 @@ export default class ProductComponent extends React.Component {
 		this.state.product_id = this.props.currentProduct ? this.props.currentProduct.id : 1;
 		this.props.onCreateOneReview(newReview);
 		this.props.onLoadProduct(newReview.product_id);
+		this.props.onLoadAllProducts();
 		event.target.reset();
 	}
 
