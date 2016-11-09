@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheckoutComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(checkoutComponent);
