@@ -1,6 +1,8 @@
 'use strict'
 import { connect } from 'react-redux';
- import userProfileComponent from '../components/userProfileComponent';
+import { receiveAUserFromServer } from '../actions/userActions';
+
+import userProfileComponent from '../components/userProfileComponent';
 
 
  const mapStateToProps = (state, ownProps) => ({
@@ -10,8 +12,7 @@ import { connect } from 'react-redux';
 
  const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        // onLoadCategories: (categories) => dispatch(receiveUsersFromServer()),
-        // onLoadProducts: () => dispatch(receiveUsersFromServer())
+        //  : (user) => dispatch(receiveAUserFromServer())
     };
 }
 
