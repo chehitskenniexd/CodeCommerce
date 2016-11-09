@@ -8,15 +8,20 @@ var data = {
   users: [
     { name: 'Swag Master', email: 'Swag@Master.com', addresses: ['5 Hanover Square, New York, NY, 10004'], isAdmin: true, password: 'abcd' },
     { name: 'Sag Mistress', email: 'Sag@Mistress.com', addresses: ['5 Hanover Square, New York, NY, 10004'], isAdmin: false, password: 'efgh' },
-    { name: 'Random Man', email: 'Man@Random.com', addresses: ['10 SandOver Pear, New York, NY, 11111'], isAdmin: false, password: 'ijkl' }
+    { name: 'Random Man', email: 'Man@Random.com', addresses: ['10 SandOver Pear, New York, NY, 11111'], isAdmin: false, password: 'ijkl' },
+    { name: 'Kenny Moy', email: "KennyMoy@Fullstack.com", addresses: ['5 Hanover Sq, NY, NY, 10004'], isAdmin: true, password: 'KennyMoy'},
+    { name: 'George Smith-Sweeper', email: "GeorgeSS@Fullstack.com", addresses: ['5 Hanover Sq, NY, NY, 10004'], isAdmin: true, password: 'GeorgeSS'},
+    { name: 'Sandesh Pathak', email: "SandeshP@Fullstack.com", addresses: ['5 Hanover Sq, NY, NY, 10004'], isAdmin: true, password: 'SandeshP'},
+    { name: 'Brian Long', email: "BrianLong@Fullstack.com", addresses: ['5 Hanover Sq, NY, NY, 10004'], isAdmin: true, password: 'BrickLong'},
   ],
 
   categories: [
-    { name: 'Swag Apparel' },
-    { name: 'Swag Kitchenware' },
-    { name: 'Swag Code' },
-    { name: 'Swag Furniture' },
-    { name: 'Station Swagon' },
+    { name: 'Swag Apparel' },     // 1
+    { name: 'Swag Kitchenware' }, // 2
+    { name: 'Swag Code' },        // 3
+    { name: 'Swag Furniture' },   // 4
+    { name: 'Station Swagon' },   // 5
+    { name: 'Pumpkins' }          // 6
   ],
 
   products: [
@@ -25,7 +30,11 @@ var data = {
     { title: 'Swag List', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', price: 0.42, inventoryQty: 10, photoUrl: 'http://faculty.ycp.edu/~dhovemey/spring2011/cs350/lecture/figures/sll.png', isDigitalShip: true, user_id: 3, category_id: 3 },
     { title: 'Swag Couch', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', price: 4200.00, inventoryQty: 4, photoUrl: 'https://s-media-cache-ak0.pinimg.com/564x/f2/41/f9/f241f97ca3621545b9f2a5211b40a640.jpg', isDigitalShip: false, user_id: 3, category_id: 4 },
     { title: 'THE Swagon', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', price: 42000.00, inventoryQty: 1, photoUrl: 'http://www.barrett-jackson.com/staging/carlist/items/FullSize/Cars/44141/44141_Side_Profile.jpg', isDigitalShip: false, user_id: 3, category_id: 5 },
-    { title: 'Binary Swag Tree', description: 'BST', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', price: 42000000.00, inventoryQty: 84, photoUrl: 'http://www.bonsaiempire.com/great-bonsai-album/acer-bonsai-pall.jpg', isDigitalShip: true, user_id: 3, category_id: 3 },
+    { title: 'Binary Swag Tree', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', price: 42000000.00, inventoryQty: 84, photoUrl: 'http://www.bonsaiempire.com/great-bonsai-album/acer-bonsai-pall.jpg', isDigitalShip: true, user_id: 3, category_id: 3 },
+    { title: 'Pumpkin', description: 'Simply a pumpkin', price: 12.00, inventoryQty: 1, photoUrl: "http://vegoutwithrfsorg.r.worldssl.net/wp-content/uploads/2015/02/Pumpkin.jpg", isDigitalShip: false, user_id: 7, category_id: 6 },
+    { title: 'Swagggggonnnnn', description: 'The next generation of Swagons', price: 35999.00, inventoryQty: 8, photoUrl: "http://smclassiccars.com/uploads/postfotos/67-nova-swagon-prostreet-protouring-hotrod-musclecar-blown-383-stroker-1.JPG", isDigitalShip: false, user_id: 7, category_id: 5 },
+    { title: 'Uhaul', description: 'Uhaul to haul all your swag to your next apartment', price: 50.00, inventoryQty: 2, photoUrl: "https://i.ytimg.com/vi/N9ahVchpJiM/maxresdefault.jpg", isDigitalShip: false, user_id: 7, category_id: 5 },
+
   ],
 
   productReviews: [
