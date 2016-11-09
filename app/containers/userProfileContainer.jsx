@@ -8,5 +8,11 @@ import { connect } from 'react-redux';
     
  });
 
+ const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        // onLoadCategories: (categories) => dispatch(receiveUsersFromServer()),
+        // onLoadProducts: () => dispatch(receiveUsersFromServer())
+    };
+}
 
-export default connect(mapStateToProps)(userProfileComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(userProfileComponent);
