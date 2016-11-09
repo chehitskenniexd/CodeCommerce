@@ -6,13 +6,12 @@ import userProfileComponent from '../components/userProfileComponent';
 
 
  const mapStateToProps = (state, ownProps) => ({
-    currentUser: state.currentUser,
-    
+     auth: state.auth
  });
 
  const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        //  : (user) => dispatch(receiveAUserFromServer())
+        
     };
 }
 

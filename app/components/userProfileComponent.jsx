@@ -7,8 +7,11 @@
 
 
 export default class profileComponent extends React.Component {
+	constructor(props){
+		super(props);
+	}
+	
 	render(){
-
 		return(
 			<div className="user-profile">
 					<img className="profile-image" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTF_erFD1SeUnxEpvFjzBCCDxLvf-wlh9ZuPMqi02qGnyyBtPWdE-3KoH3s" alt="Ash" />
