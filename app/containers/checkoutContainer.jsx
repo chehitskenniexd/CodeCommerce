@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
     total: state.total,
     cart: state.cart,
     products: state.products,
-    user: state.user
+    auth: state.auth
 })
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

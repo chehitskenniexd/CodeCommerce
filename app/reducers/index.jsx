@@ -10,7 +10,6 @@ const rootReducer = combineReducers({
   total: totalReducer,
   currentProduct: require('./currentProductReducer').default,
   selectedProducts: require('./selectedProductsReducer').default,
-  //currentUser: require('./currentUserReducer').default
 });
 
 export default rootReducer;
