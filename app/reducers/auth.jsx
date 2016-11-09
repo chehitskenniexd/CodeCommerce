@@ -6,6 +6,7 @@ var initUser = JSON.parse(localStorage.getItem('user'));
 const reducer = (state = null, action) => {
   switch (action.type) {
     case AUTHENTICATED:
+    checkoutLocalStorage(action.user);
       return action.user
     case CREATE_A_USER: {
       checkoutLocalStorage(action.auth);
@@ -37,6 +38,7 @@ export const logout = () =>
   dispatch =>
     axios.post('/api/auth/logout')
       .then(() => dispatch(whoami()))
+      .then(() => checkoutLocalStorage({}))
       .catch(() => dispatch(whoami()))
 
 export const whoami = () =>

@@ -55,7 +55,7 @@ export default class extends React.Component {
     this.state[e.target.id] = e.target.value;
   }
   addUser = (address) => {
-    if (! this.props.user) {
+    if (! this.props.auth) {
       var user = {
         name: this.state.id_first_name+' '+this.state.id_last_name,
         email: this.state.id_email,
@@ -69,7 +69,7 @@ export default class extends React.Component {
       return new Promise((resolve, reject) => {
         var x = {
           data: {
-            id: this.props.user.id
+            id: this.props.auth.id
           }
         }
         resolve(x);
