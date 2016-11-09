@@ -72,7 +72,7 @@ export default class NavbarComponent extends React.Component {
               </li>
             </ul>
 
-              <form className="navbar-form navbar-left" onSubmit={this.handleOnSubmit}>
+              <form className="navbar-form navbar-right" onSubmit={this.handleOnSubmit}>
                 <div className="form-group">
                   <input type="text" className="form-control"  placeholder="Search" onChange={this.handleOnChange}/>
                   <button type="submit" className="btn btn-lg btn-default"><i className="glyphicon glyphicon-search"></i></button>
