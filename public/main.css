@@ -44,8 +44,8 @@ body {
 
 /* +++++++++++++++++++++++++START LOGIN STYLES+++++++++++++++++++++++++*/
 .wrapper {
-  margin-top: 80px;
-  margin-bottom: 20px;
+/*  margin-top: 80px;
+*/  margin-bottom: 70px;
 }
 
 .form-signin {
@@ -169,7 +169,6 @@ input[type="password"] {
 footer {
     margin: 50px 0;
 }
-
 
 #rating {
   unicode-bidi: bidi-override;

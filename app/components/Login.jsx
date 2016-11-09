@@ -6,7 +6,7 @@ import { Link, browserHistory } from 'react-router'
 
 export const Login = ({ login }) => (
   <div className="container">
-    <div className="wrapper">
+    <div className="wrapper" id="login-wrapper">
       <form className="form-signin" onSubmit={event => {
         event.preventDefault()
         login(event.target.username.value, event.target.password.value);
