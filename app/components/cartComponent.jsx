@@ -41,7 +41,15 @@ export default class extends React.Component {
                   if (! this.props.products.length) {
                     return;
                   }
-                  var product = this.props.products[productId - 1];
+                  var product;
+                  for (var i = 0; i < this.props.products.length; i++) {
+                    if (this.props.products[i].id === +productId) {
+                      product = this.props.products[i]
+                    }
+                  }
+                  if (! product) {
+                    return;
+                  }
                   var price = product.price;
                   var name = product.title;
                   var itemTotal = +price * +qty;
@@ -58,11 +66,11 @@ export default class extends React.Component {
                     }
                   }
                   return (
-                  <tr key={index}>
-                    <td className="col-sm-3 col-md-3">
-                      <a className="thumbnail pull-left" href="#"> <img className="media-object" src={product.photoUrl} style={{width: 72, height: 72}}/> </a>
-                      <h4 className="media-heading"><a href="#">{name}</a></h4>
-                      <span>Status: </span><span className="text-success"><strong>In Stock</strong></span>
+                    <tr key={index}>
+                      <td className="col-sm-3 col-md-3">
+                        <a className="thumbnail pull-left" href="#"> <img className="media-object" src={product.photoUrl} style={{width: 72, height: 72}}/> </a>
+                        <h4 className="media-heading"><a href="#">{name}</a></h4>
+                        <span>Status: </span><span className="text-success"><strong>In Stock</strong></span>
                     </td>
                     <td className="col-sm-1 col-md-1" style={{textAlign: "center"}}>
                       <input className="form-control" type="text" id="example-number-input" value={qty} disabled />

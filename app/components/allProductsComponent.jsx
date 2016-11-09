@@ -49,31 +49,31 @@ export default ({products, addToCart, cart}) => (
     </div>
   </div>
   <div className="products-wrapping-container">
-  {
-    products && products.map((product, index) => {
-      return (
-        <div key={`${index}`} className="col-md-4 col-sm-4 col-lg-4" id="product-card">
-          <div className="thumbnail">
-            <img src={product.photoUrl} alt="" />
-            <div className="caption-full">
-              <h4 className="pull-right">${product.price}</h4>
-              <h4><Link to={"/products/" + product.id}>{product.title}</Link></h4>
-              <p>{product.description}</p>
-              <p>
-                <a data-toggle="modal" data-target="#myModal" onClick={(e) => { e.preventDefault(); addToCart(product.id, 1); } } href="#" className="btn btn-primary ">Add To Cart!</a>
-              </p>
-            </div>
-            <div className="ratings">
-              <p className="pull-right">
-                {product.productReviews.length === 1
-                  ? `${product.productReviews.length} Review`
-                : `${product.productReviews.length} Reviews`}
-              </p>
-              <p className="stars">
-                {
-                  product.productReviews.length < 1
-                  ? 'No Reviews!'
-                  : drawStars(product).map((star, index) => {
+    {
+      products && products.map((product, index) => {
+        return (
+          <div key={`${index}`} className="col-md-4 col-sm-4 col-lg-4" id="product-card">
+            <div className="thumbnail">
+              <img src={product.photoUrl} alt="" />
+              <div className="caption-full">
+                <h4 className="pull-right">${product.price}</h4>
+                <h4><Link to={"/products/" + product.id}>{product.title}</Link></h4>
+                <p>{product.description}</p>
+                <p>
+                  <a data-toggle="modal" data-target="#myModal" onClick={(e) => { e.preventDefault(); addToCart(product.id, 1); } } href="#" className="btn btn-primary ">Add To Cart!</a>
+                </p>
+              </div>
+              <div className="ratings">
+                <p className="pull-right">
+                  {product.productReviews.length === 1
+                    ? `${product.productReviews.length} Review`
+                  : `${product.productReviews.length} Reviews`}
+                </p>
+                <p className="stars">
+                  {
+                    product.productReviews.length < 1
+                    ? 'No Reviews!'
+                    : drawStars(product).map((star, index) => {
                     return star === 1
                       ? <span key={index} className="glyphicon glyphicon-star"></span>
                     : <span key={index} className="glyphicon glyphicon-empty"></span>
