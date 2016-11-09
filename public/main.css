@@ -206,3 +206,7 @@ footer {
    opacity:0;
 }
 
+#recentOrdersHeading {
+  background-color: #20a94b;
+  color: white;
+}
