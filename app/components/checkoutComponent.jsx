@@ -135,7 +135,15 @@ export default class extends React.Component {
                                   if (! this.props.products.length) {
                                     return;
                                   }
-                                  var product = this.props.products[productId - 1];
+                                  var product;
+                                  for (var i = 0; i < this.props.products.length; i++) {
+                                    if (this.props.products[i].id === +productId) {
+                                      product = this.props.products[i];
+                                    }
+                                  }
+                                  if (! product) {
+                                    return;
+                                  }
                                   var price = product.price;
                                   var name = product.title;
                                   return (
