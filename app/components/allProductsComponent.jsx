@@ -29,7 +29,7 @@ function drawStars(product) {
 
 export default ({products, addToCart, cart}) => (
 
-<div className="row">
+<div>
   <div id="myModal" className="modal fade" role="dialog">
     <div className="modal-dialog">
 
@@ -48,13 +48,14 @@ export default ({products, addToCart, cart}) => (
 
     </div>
   </div>
-  <div className="products-wrapping-container">
+  <div className="row">
   {
     products && products.map((product, index) => {
       return (
-        <div key={`${index}`} className="col-md-4 col-sm-4 col-lg-4" id="product-card">
+
+        <div key={`${index}`} className="col-md-4">
           <div className="thumbnail">
-            <img src={product.photoUrl} alt="" />
+            <img src={product.photoUrl} className="img-responsive"alt="" />
             <div className="caption-full">
               <h4 className="pull-right">${product.price}</h4>
               <h4><Link to={"/products/" + product.id}>{product.title}</Link></h4>
@@ -83,6 +84,7 @@ export default ({products, addToCart, cart}) => (
             </div>
           </div>
         </div>
+
       )
     })
   }

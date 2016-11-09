@@ -44,8 +44,7 @@ body {
 
 /* +++++++++++++++++++++++++START LOGIN STYLES+++++++++++++++++++++++++*/
 .wrapper {
-/*  margin-top: 80px;
-*/  margin-bottom: 70px;
+ margin-bottom: 70px;
 }
 
 .form-signin {
@@ -102,15 +101,6 @@ input[type="password"] {
 
 /* +++++++++++++++++++++++++START ADD PAGE STYLES+++++++++++++++++++++++++ */
 /*
-#rating {
-  position: relative;
-}
-
-
-#rating textarea {
-  position: absolute;
-  left: -50px;
-}*/
 
 /* +++++++++++++++++++++++++END ADD PAGE STYLES+++++++++++++++++++++++++ */
 
@@ -125,35 +115,13 @@ input[type="password"] {
   color: black;
 }
 
-.slide-image {
-    width: 100%;
-}
-
-.carousel-holder {
-    margin-bottom: 30px;
-}
-
-.carousel-control,
-.item {
-    border-radius: 4px;
-}
-
-.caption {
-    height: 130px;
-    overflow: hidden;
-}
-
 .caption h4 {
     white-space: nowrap;
 }
 
-.thumbnail img {
-    width: 100%;
-}
-
 .ratings {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 5%;
+    padding-left: 5%;
     color: #d17581;
 }
 
@@ -162,13 +130,10 @@ input[type="password"] {
 }
 
 .thumbnail .caption-full {
-    padding: 9px;
+    padding: 5%;
     color: #333;
 }
 
-footer {
-    margin: 50px 0;
-}
 
 #rating {
   unicode-bidi: bidi-override;
