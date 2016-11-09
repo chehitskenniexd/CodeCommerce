@@ -20,6 +20,8 @@ export default class ProductComponent extends React.Component {
 			product_id: 1,
 		}
 		this.onHandleSubmitReview = this.onHandleSubmitReview.bind(this);
+		this.onHandleChange = this.onHandleChange.bind(this);
+		this.printNumStars = this.printNumStars.bind(this);
 	}
 
 	onHandleChange(property, event) {
@@ -32,6 +34,7 @@ export default class ProductComponent extends React.Component {
 		this.state.product_id = this.props.currentProduct ? this.props.currentProduct.id : 1;
 		this.props.onCreateOneReview(newReview);
 		this.props.onLoadProduct(newReview.product_id);
+		event.target.reset();
 	}
 
 
@@ -43,6 +46,14 @@ export default class ProductComponent extends React.Component {
 		} else {
 			this.props.onLoadProduct(productId);
 		}
+	}
+
+	printNumStars(numStars){
+		let output = [];
+		for(let i = 0; i < numStars; ++i){
+			output.push(1);
+		}
+		return output;
 	}
 
 	render() {
@@ -72,11 +83,11 @@ export default class ProductComponent extends React.Component {
 											<form onSubmit={this.onHandleSubmitReview} className="form-control">
 												<h3 style={{ "textAlign": "center" }}>Please leave a Review:</h3>
 												<div id="rating">
-													<input name="myrating" type="radio" value="2" /><span>☆</span>
-													<input name="myrating" type="radio" value="4" /><span>☆</span>
-													<input name="myrating" type="radio" value="3" /><span>☆</span>
-													<input name="myrating" type="radio" value="2" /><span>☆</span>
-													<input name="myrating" type="radio" value="1" /><span>☆</span>
+													<input name="myrating" type="radio" value="5" onClick={() => this.setState({ numStars: 5 })} /><span>☆</span>
+													<input name="myrating" type="radio" value="4" onClick={() => this.setState({ numStars: 4 })} /><span>☆</span>
+													<input name="myrating" type="radio" value="3" onClick={() => this.setState({ numStars: 3 })} /><span>☆</span>
+													<input name="myrating" type="radio" value="2" onClick={() => this.setState({ numStars: 2 })} /><span>☆</span>
+													<input name="myrating" type="radio" value="1" onClick={() => this.setState({ numStars: 1 })} /><span>☆</span>
 												</div>
 												<h4 style={{ "textAlign": "left" }}>Title</h4>
 												<input type="input" className="form-control" onChange={(event) => { this.onHandleChange('title', event) } }></input>
@@ -105,9 +116,10 @@ export default class ProductComponent extends React.Component {
 												<div className="caption-full">
 													<div className={`review-${index}`}>
 														<h4>{review.title}</h4>
+														<p>{
+															this.printNumStars(review.numStars).map((star, index) => <span key={index} className="glyphicon glyphicon-star"></span>)
+														}</p>
 														<p>{review.description}</p>
-														<h4>Number of stars</h4>
-														<p>{review.numStars}</p>
 													</div>
 												</div>
 											</div>
