@@ -39,6 +39,16 @@ customProductRoutes.get('/:id', (req, res, next) => {
     .catch(err => console.log('Error retrieving product', err));
 })
 
+customProductRoutes.get('/name/:name', (req, res, next) => {
+  Product.findAll({
+    where: {
+      title: req.params.name
+    }
+  })
+    .then(products => res.status(200).json(products))
+    .catch(err => console.log('Error retrieving products by name', err));
+})
+
 module.exports = customProductRoutes
 
 // Epilogue will automatically create standard RESTful routes
