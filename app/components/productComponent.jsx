@@ -50,6 +50,22 @@ export default class ProductComponent extends React.Component {
 		return (
 
 			<div className="container">
+				<div id="myModal" className="modal fade" role="dialog">
+					<div className="modal-dialog">
+						<div className="modal-content">
+							<div className="modal-header">
+								<button type="button" className="close" data-dismiss="modal">&times;</button>
+								<h4 className="modal-title">Success!</h4>
+							</div>
+							<div className="modal-body">
+								<p>Item added to cart</p>
+							</div>
+							<div className="modal-footer">
+								<button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div className="row">
 					<div className="col-md-12">
 						<div className="col-md-3"></div>
@@ -61,7 +77,7 @@ export default class ProductComponent extends React.Component {
 									<h4>{currentProduct.title}</h4>
 									<p>{currentProduct.description}</p>
 									{currentProduct.inventoryQty > 0 ? <p> Stock Available </p> : <p> Stock not Available</p>}
-									<a onClick={(e) => { e.preventDefault(); this.props.addToCart(currentProduct.id, 1); } } href="#" className="btn btn-primary">Add To Cart!</a>
+									<a data-toggle="modal" data-target="#myModal" onClick={(e) => { e.preventDefault(); this.props.addToCart(currentProduct.id, 1); } } href="#" className="btn btn-primary">Add To Cart!</a>
 								</div>
 
 							</div>
@@ -124,5 +140,3 @@ export default class ProductComponent extends React.Component {
 		);
 	}
 }
-
-
